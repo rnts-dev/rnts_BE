@@ -31,9 +31,7 @@ public class Penalty extends BaseEntity {
 
     private Long penaltyCreatorId;
 
-    // 엔티티가 아닌 값 타입, 임베디드 타에 대해 1:N 매핑으로 테이블 생성 후 데이터 저장
-//    @ElementCollection(fetch = FetchType.LAZY)
-//    private List<Long> penaltyReceivedMemberId;
+
 
     @Builder
     public Penalty(Long id, PenaltyType penaltyType, String content, int fine,

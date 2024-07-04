@@ -54,11 +54,13 @@ public class Appointment extends BaseEntity {
     @Column(name = "is_first")
     private boolean isFirst = false;
 
-//    @OneToMany(mappedBy = "appointment")
-//    private List<AppointmentMember> members;
+
 
     @Column(name = "penalty_id")
     private Long penaltyId;
+
+    //    @OneToMany(mappedBy = "appointment")
+//    private List<AppointmentMember> members;
 
     @Builder
     private Appointment(Long id, Title title, Long creatorId, AppointmentType appointmentType, CustomAppointmentType customAppointmentType, LocalDateTime appointmentTime,
@@ -96,6 +98,13 @@ public class Appointment extends BaseEntity {
 
     public void delete() {
         this.isDeleted = true;
+    }
+
+    public boolean isFirst() {
+        return isFirst;
+    }
+    public void setIsFirst(){
+        this.isFirst = true;
     }
 }
 

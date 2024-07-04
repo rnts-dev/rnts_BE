@@ -28,6 +28,7 @@ public class PenaltyCreateRequest {
     public Penalty toEntity(){
         return Penalty.builder()
                 .penaltyType(penaltyType)
+                .content(content)
                 .fine(fine)
                 .build();
     }

@@ -27,7 +27,12 @@ public enum ErrorCode {
     APPOINTMENT_NOT_FOUND(400, "A001", "약속이 없습니다."),
     APPOINTMENT_MISS_MATCH(400, "A002", "일치하는 약속이 없습니다."),
     // PENALTY
-    PENALTY_NOT_FOUND(400,"P001","해당 패널티를 찾을수 없습니다");
+    PENALTY_NOT_FOUND(400,"P001","해당 패널티를 찾을수 없습니다"),
+
+    //checkin
+    CHECKIN_NOT_FOUND(400,"C01","해당 체크인을 찾을수 없습니다.");
+
+
 
     private final int status;
     private final String code;

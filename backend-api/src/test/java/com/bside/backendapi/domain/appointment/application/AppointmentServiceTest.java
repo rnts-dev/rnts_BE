@@ -36,7 +36,7 @@ public class AppointmentServiceTest {
                 () -> new MemberNotFoundException(ErrorCode.USER_NOT_FOUND)
         );
 
-        appointmentId = appointmentService.create(GivenAppointment.toEntityWithId(), member.getId());
+        appointmentId = appointmentService.create(GivenAppointment.toEntityWithId(), null, member.getId());
     }
 
 }

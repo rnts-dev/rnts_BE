@@ -37,8 +37,11 @@ public class PenaltyService {
         Appointment updatedAppointment = appointmentRepository.findById(appointmentId).orElseThrow(
                 () -> new AppointmentNotFound(ErrorCode.APPOINTMENT_NOT_FOUND)
         );
+        log.info("ps appointmentId: {}", updatedAppointment.getId());
+
         updatedAppointment.addPenalty(savedPenalty.getId());
         appointmentRepository.save(updatedAppointment);
+        log.info("ps pENALTYID: {}", appointmentRepository.findById(1L).get().getPenaltyId());
 
         return savedPenalty.getId();
     }
@@ -47,14 +50,18 @@ public class PenaltyService {
     //약속에서 패널티 조회
     public PenaltyGetResponse findByAppointment(final Long appointmentId){
 
+        log.info("ps findByAppointment appointmentId: {}", appointmentId);
         Appointment findAppointment = appointmentRepository.findById(appointmentId).orElseThrow(
                 () -> new AppointmentNotFound(ErrorCode.APPOINTMENT_NOT_FOUND)
         );
+        log.info("ps findAppointment: {}", findAppointment.getId());
+
         //조회성공 여부
         Long penaltyId = findAppointment.getPenaltyId();
         if (penaltyId == null){
             return PenaltyGetResponse.empty();
         }
+        log.info("ps penaltyId: {}", penaltyId);
 
         Penalty getPenalty = penaltyRepository.findById(penaltyId).orElseThrow(
                 () -> new PenaltyNotFoundExepception(ErrorCode.PENALTY_NOT_FOUND)

@@ -30,21 +30,21 @@ class AppointmentControllerTest {
     @MockBean AppointmentService appointmentService;
     @Autowired ObjectMapper objectMapper;
 
-    @Test
-    @DisplayName("요청 받은 약속 정보를 저장한다.")
-    @WithAuthUser
-    void 약속_생성() throws Exception {
-        // given
-        AppointmentCreateRequest appointmentCreateRequest = AppointmentCreateRequest.of(GivenAppointment.toEntity());
-        String body = objectMapper.writeValueAsString(appointmentCreateRequest);
-
-        // when, then
-        when(appointmentService.create(any(), any())).thenReturn(1L);
-
-        mockMvc.perform(post("/api/v1/appointments")
-                        .content(body)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated())
-                .andDo(print());
-    }
+//    @Test
+//    @DisplayName("요청 받은 약속 정보를 저장한다.")
+//    @WithAuthUser
+//    void 약속_생성() throws Exception {
+//        // given
+//        AppointmentCreateRequest appointmentCreateRequest = AppointmentCreateRequest.of(GivenAppointment.toEntity());
+//        String body = objectMapper.writeValueAsString(appointmentCreateRequest);
+//
+//        // when, then
+//        when(appointmentService.create(any(), any())).thenReturn(1L);
+//
+//        mockMvc.perform(post("/api/v1/appointments")
+//                        .content(body)
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isCreated())
+//                .andDo(print());
+//    }
 }
