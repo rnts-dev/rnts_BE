@@ -29,7 +29,8 @@ public class WithAuthUserSecurityContextFactory implements WithSecurityContextFa
 
         List<GrantedAuthority> role = AuthorityUtils.createAuthorityList(RoleType.USER.name());
 
-        CustomOAuth2User userDetails = new CustomOAuth2User(member);
+        // 일반 로그인 생성자에 맞춰서 유저 생성
+        CustomOAuth2User userDetails = new CustomOAuth2User(member.getId(), member.getLoginId(), member.getRole(), member);
 
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken(userDetails, member.getPassword(), role));
