@@ -31,6 +31,7 @@ public class SignUpRequest {
                 .mail(mail)
                 .nickname(nickname)
                 .role(RoleType.USER)
+                .profileImage("https://kr.object.ncloudstorage.com/rnts/profile/1.jpg")
                 .build();
     }
 }
